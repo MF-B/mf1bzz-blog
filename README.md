@@ -1,7 +1,11 @@
-# mf1bzz的blog
-## rCore blog
-[Blog_WebSite](blog.mf1bzz.cn)
+# mf1bzz 的个人博客
 
----
-## Docs
-Docs are available at [dg-docs.ole.dev](https://dg-docs.ole.dev/)
+## 内容导览
+
+- rCore 操作系统学习笔记
+
+## 访问方式
+
+点击下方链接即可访问我的博客网站：
+
+[https://blog.mf1bzz.cn](https://blog.mf1bzz.cn)
