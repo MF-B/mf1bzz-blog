@@ -5,7 +5,7 @@
 # mf1bzz的BLOG
 ## 内容导览
 
-- [[Zettelkasten/OS Camp Stage 3\|OS Camp学习日志]] - 记录了从Stage1 - Stage3的所有学习记录
+- [[Zettelkasten/OS Camp\|OS Camp学习日志]] - 记录了从Stage1 - Stage3的所有学习记录
 
 ## 网站说明
 
