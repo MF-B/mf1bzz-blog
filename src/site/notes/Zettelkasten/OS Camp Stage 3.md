@@ -23,5 +23,4 @@ Tags: [[Zettelkasten/OS Camp\|OS Camp]]
 - [[Zettelkasten/Hypervisor\|Hypervisor]]
 
 
-
 ___
