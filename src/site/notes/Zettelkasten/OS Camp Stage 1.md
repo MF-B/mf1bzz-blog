@@ -8,6 +8,7 @@ Tags: [[Zettelkasten/OS Camp\|OS Camp]]
 
 # OS Camp Stage 1
 
+## 感想
 本阶段是Rust编程
 Rust有很好的官方教程,也有很多第三方资料
 
