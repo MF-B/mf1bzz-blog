@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/readme/","title":"mf1bzz的BLOG","tags":["mf1bzz的BLOG"]}
+{"dg-publish":true,"permalink":"/readme/","title":"mf1bzz的BLOG","tags":["mf1bzz的BLOG","gardenEntry"]}
 ---
 
 # 内容导览
