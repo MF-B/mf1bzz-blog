@@ -27,8 +27,8 @@ Tags: [[Zettelkasten/OS Camp Stage 2\|OS Camp Stage 2]]
 整理完之后稍微清晰了一些
 
 ## MemorySet的作用
-整理完后我发现MemorySet其实不参与转换的工作,它是用来管理页表的
-因为页表
+MemorySet不参与转换的工作,它是用来管理页表的
+因为操作系统需要知道进程使用了页表的哪些空间以及不同空间的权限标志,这样方便操作系统管理用户地址空间
 
 ___
 # References
