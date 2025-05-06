@@ -23,7 +23,7 @@ Tags: [[Zettelkasten/OS Camp Stage 2\|OS Camp Stage 2]]
 ## 虚拟地址到物理地址的转换流程
 
 虽然了解了上述概念,但是我对页表机制的实现还是一团雾水
-于是尝试梳理了一下[[Zettelkasten/虚拟地址到物理地址的转换流程\|虚拟地址到物理地址的转换流程]]
+于是尝试梳理了一下[[Zettelkasten/va to pa\|虚拟地址到物理地址]]
 整理完之后稍微清晰了一些
 
 ## MemorySet的作用

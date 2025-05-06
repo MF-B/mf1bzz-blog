@@ -21,7 +21,7 @@ Tags: [[Zettelkasten/OS Camp\|OS Camp]]
 - [[Zettelkasten/scheduler\|调度器]]
 - [[Zettelkasten/syscall mmap\|系统调用mmap实现]]
 - [[Zettelkasten/Hypervisor\|Hypervisor]]
-- [[Zettelkasten/挑战题目\|挑战题目]]
+- [[Zettelkasten/os challenge\|挑战题目]]
 
 
 ___

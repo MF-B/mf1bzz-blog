@@ -4,7 +4,7 @@
 
 2025-05-05
 Status: #idea
-Tags: [[Zettelkasten/挑战题目\|挑战题目]]
+Tags: [[Zettelkasten/os challenge\|os challenge]]
 
 # challenge lab1_3_tlfs
 ```rust
