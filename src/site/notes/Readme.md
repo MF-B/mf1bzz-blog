@@ -2,11 +2,10 @@
 {"dg-publish":true,"permalink":"/readme/","title":"mf1bzz的BLOG","tags":["gardenEntry"]}
 ---
 
-
+[mf1bzz的Github](https://github.com/MF-B/)
 
 # 内容导览
 
-- [GitHub](https://github.com/MF-B/)
 - [[Zettelkasten/OS Camp\|OS Camp学习日志]] - 记录了从Stage1 - Stage3的所有学习记录
 
 # 网站说明
