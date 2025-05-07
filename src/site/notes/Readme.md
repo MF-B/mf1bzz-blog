@@ -7,6 +7,7 @@
 # 内容导览
 
 - [[Zettelkasten/OS Camp\|OS Camp学习日志]] - 记录了从Stage1 - Stage3的所有学习记录
+- [[Zettelkasten/EulixOS Stage 4\|傲来训练营 四阶段记录]]
 
 # 网站说明
 
