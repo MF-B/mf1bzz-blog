@@ -13,7 +13,7 @@ Tags: [[Readme\|Readme]]
 ## [PyTorch构建](https://github.com/pytorch/pytorch#from-source)
 1. python
 	- version >=3.9
-	- dnf install python3
+	- dnf install python3 python3-devel
 2. 开发工具
 	- dnf group install "Development Tools"
 3. 虚拟环境
