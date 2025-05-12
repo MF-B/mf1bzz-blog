@@ -5,22 +5,21 @@
 2025-05-09
 Status: #idea
 Tags: [[Zettelkasten/ArceOS宏内核\|ArceOS宏内核]]
-
+> 基于axsignal
 # signal for starry-next
 ## 进程信号和线程信号
 
 详见Linux-UNIX系统编程手册P591(书内为P562)
 ## 实现
 ### Process新增字段
-
-- sig_pending - 共享未决信号队列
-- sig_actions - 信号处理函数(进程全局)
-> `进程全局`指该操作对该进程的所有线程都有效,信号的处理效果是全局有效的
+```rust
+sig_manager: Arc<ProcessSignalManager<RawMutex, MyWaitQueue>>
+```
 ### Thread新增字段
 
-- sig_pending - 信号队列
-- sig_mask - 线程私有掩码
-- sig_stack - 信号栈
+```rust
+sig_manager: Arc<ThreadSignalManager<RawMutex, MyWaitQueue>>
+```
 ### 系统调用支持
 #### kill
 ```rust
@@ -47,20 +46,42 @@ pub fn sys_rt_sigprocmask(
 ```rust
 pub fn sys_rt_sigaction(
     signum: i32,
-    act: UserConstPtr<SignalAction>,
+    act: UserConstPtr<kernel_sigaction>,
     oldact: UserPtr<kernel_sigaction>,
     _sigsetsize: usize,
 ) -> LinuxResult<isize>;
 ```
+#### waitpid系统调用改进
+将crate::sys_sched_yield()更换为sig_manager.wait_signal()
+意思是父进程等待子进程的信号
+#### do_exit改进
+进程退出前向父进程发送SIGCHLD信号
+
+
 ### 信号处理
 模仿PAGE_FAULT注册成starry定义的函数
 #### 处理进程
-#### 处理线程pending
-- 检查是否有pending信号: sig_pending.dequeue()
-- 对每一个pending的信号,进行相应处理,通过进程的sig_actions,获得对应的disposition
-	- 忽略: 跳过此次循环
-	- 默认: 使用信号默认处理
-	- Handler: 使用用户设置的处理程序
+> 处理线程信号时会自动处理进程信号,所以不需要做额外处理
+##### WaitQueue接口实现
+沿用axtask的WaitQueue即可(需要再封装一层)
+#### 处理线程
+- 调用thread_sig_manager的check_signals方法即可,它返回一个SignalOSAction,我们需要根据返回值做相应处理(即exit,并修改exit_code)
+- 对于用户自定义的Handler,check_signal时会自动将信号栈压好,handle_signal结束返回用户程序后会自动跳转到handler,但我们仍然需要处理返回的情况.
+#### sig_return处理
+进程的sig_manager保存有一个默认的信号返回地址,并且管理器中的actions中,每一个action也都保存有信号返回地址.
+简单起见,先忽略action中的返回地址
+自定义信号handler执行完毕后,会尝试跳转到ra寄存器的地址,而ra寄存器在check_signal时被设置为进程默认的信号返回地址
+##### trampoline页的实现
+参考别人的实现
+- 在axhal的各arch添加signal.S汇编,执行系统调用(对齐到页开头,通过修改linker实现)
+- 实现map_trampoline,将用户的signal-trampoline(0x4001_0000)映射到signal.S汇编函数的实现上.
+- 修改axmm::aspace,添加以下代码: (目的是为了跳过trampoline页)
+```rust
+if matches!(backend, Backend::Linear { .. }) {
+    continue;
+}
+```
+
 
 ___
 # References
